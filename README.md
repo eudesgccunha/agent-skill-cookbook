@@ -20,7 +20,7 @@ Design with Pocock. Execute with Superpowers. Compress with RTK and Caveman.
 
 Pocock and Superpowers overlap on TDD, debugging and review. Pick one per stage and say so in `CLAUDE.md` (see [setup](setup.md)).
 
-Per-skill guidance: [skills.md](skills.md).
+Per-skill guidance: [skills.md](skills.md). Which skills to keep: [essentials.md](essentials.md). Other harnesses (Codex, Cursor, OpenCode, Pi): [harnesses.md](harnesses.md).
 
 ## Workflows
 

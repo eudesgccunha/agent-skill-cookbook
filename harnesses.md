@@ -59,6 +59,26 @@ Verify after install:
 2. Ask: "Use a subagent to list the top-level folders of this repo." The agent should call the subagent tool.
 3. Manage what loads with `pi config`.
 
+## Pi: recommended extension set
+
+Three extensions cover the usual Pi setup: subagents, Cursor models and a LiteLLM gateway.
+
+| Extension | What it adds | Install |
+|---|---|---|
+| `pi-subagents` | Subagents for delegation (required, see above). Several packages share this name under different scopes, so pick one and check its page | `pi install npm:<package>` |
+| `pi-cursor-sdk` | Cursor models inside Pi through the local `@cursor/sdk` runtime, for example `cursor/grok-4.6` | `pi install npm:pi-cursor-sdk` |
+| `pi-provider-litellm` | Models from a LiteLLM proxy, registered as Pi providers. Adds `/login litellm` and `/litellm-refresh` | `pi install npm:pi-provider-litellm` |
+
+Requirements and gotchas, from the package pages (November 2026, not tested here):
+
+- **`pi-cursor-sdk`:** needs Node.js 24 or newer and Pi 0.87.1 or newer. It needs a Cursor **user key or service-account key** for the SDK. Cursor Desktop and Agent CLI logins do not provide that key. It creates a fresh Cursor agent for each provider call. Keep the key in an environment variable, never in a committed file.
+- **`pi-provider-litellm`:** needs Pi 0.99.2 or newer. On older Pi, install `pi-provider-litellm@3.4.0`. It discovers models from the proxy, so run `/litellm-refresh` after you add a model on the proxy. It can also expose LiteLLM MCP tools and inject skills from the LiteLLM Skills Gateway, so check what the gateway sends before you trust it.
+- **Cost tracking:** with LiteLLM in the path, spend appears in the proxy logs. Cursor models called through `pi-cursor-sdk` do not pass through your LiteLLM proxy, so their cost lives in Cursor instead. Keep the two apart when you compare.
+- **Subagent models:** subagents run on whichever provider the extension uses. Pick a cheaper model for exploration subagents to save cost.
+- **Trust:** all three run code inside Pi. Read the source before you install or update them, and pin versions when you can.
+
+Check after install: restart Pi, read the startup header for the loaded extensions, run `/login litellm` or set the Cursor key, then start Pi with one model from each provider.
+
 ## What changes in practice
 
 - **Superpowers auto-loading.** On Claude Code its session-start hook loads `using-superpowers`. Elsewhere you may lose that, so invoke skills by name or reference them from `AGENTS.md`.
@@ -87,5 +107,5 @@ Put in `AGENTS.md` (same content as the `CLAUDE.md` block in [setup.md](setup.md
 - https://developers.openai.com/codex/skills (Codex)
 - https://cursor.com/docs/skills (Cursor)
 - https://opencode.ai/docs/skills (OpenCode)
-- https://pi.dev (Pi) and its package pages for the subagent extensions
+- https://pi.dev (Pi) and its package pages: [pi-cursor-sdk](https://pi.dev/packages/pi-cursor-sdk), [pi-provider-litellm](https://pi.dev/packages/pi-provider-litellm) and the subagent extensions
 - `rtk init --help` (local, RTK)

@@ -1,6 +1,8 @@
 # Contributing
 
-This repo is a guide to the best agent skills and practices. Quality over volume. A short, true, dated page beats a long guess.
+This repo is a guide to the agent skills and practices that work for the author's scenarios, with the evidence behind each one. Quality over volume. A short, true, dated page beats a long guess.
+
+"Best" means best for a stated scenario, not best in general. When you propose a change, name the scenario it serves.
 
 ## What belongs here
 
@@ -47,6 +49,10 @@ Rules:
 - Pick the lowest level that is true. Never claim `tested` for something you only read.
 - When you change a claim, re-verify it and update the line. A typo fix does not need a new date.
 - Name versions (plugin version, commit, CLI version) in the basis when they matter.
+
+## Raising a page to `tested`
+
+The preferred source of `tested` evidence is a [harness-bench](https://github.com/eudesgccunha/harness-bench) run: same tasks, same harness and model, with a no-skill control. Put in the basis the harness, model, task kinds, number of runs and the confidence interval. A result inside the noise does not justify a change. A skills axis for harness-bench is proposed, not built, so for now `tested` means you ran the skill yourself on real work and describe what happened.
 
 ## Entry criteria for a skill or practice
 

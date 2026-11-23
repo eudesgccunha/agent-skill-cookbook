@@ -52,11 +52,11 @@ Rule: never run both skills of one stage in the same session. Write your choice 
 |---|---|
 | `caveman` | Shorter replies in execution phases. |
 | `caveman-commit` | Compact Conventional Commits. |
-| `caveman-compress` | Shrinks large memory files such as `CLAUDE.md`. |
+| `caveman-compress` | Shrinks large memory files such as `CLAUDE.md`. Sends the file to the model vendor, see [security.md](security.md). |
 
 Optional: `caveman-review` (one-line findings), `caveman-stats` (usage), `cavecrew` (needs subagents: native on Claude Code, an extension on Pi).
 
-Skip: `caveman-setup`, `caveman-discover`, `caveman-evidence-review`, `caveman-learn`, `caveman-manage`, `caveman-optimize`. They belong to Caveman Cloud (spend observability), not day-to-day coding.
+Skip: `caveman-setup`, `caveman-discover`, `caveman-evidence-review`, `caveman-learn`, `caveman-manage`, `caveman-optimize`. They belong to Caveman Cloud (spend observability), not day-to-day coding. They send data to a third party, see [security.md](security.md).
 
 ## Pi: required extension
 

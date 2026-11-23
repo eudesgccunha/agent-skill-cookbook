@@ -18,7 +18,7 @@ Recommended base: RTK + Pocock (design) + Superpowers (execution). On Pi, also i
 
 Design with Pocock. Execute with Superpowers. Compress with RTK and Caveman.
 
-Pocock and Superpowers overlap on TDD, debugging and review. Pick one per stage and say so in `CLAUDE.md` (see [setup](setup.md)). Default picks are in [essentials.md](essentials.md#when-pocock-and-superpowers-overlap).
+Pocock and Superpowers overlap on TDD, debugging and review. Pick one per stage and say so in `CLAUDE.md` (see [setup](setup.md)). Trade-offs, setup and the author's picks are in [tradeoffs.md](tradeoffs.md).
 
 Start here: [scenarios.md](scenarios.md) (bug fix, new feature, Kubernetes manifest, architecture exploration, diagram and more). Per-skill guidance: [skills.md](skills.md). Which skills to keep: [essentials.md](essentials.md). Other harnesses (Codex, Cursor, OpenCode, Pi): [harnesses.md](harnesses.md).
 

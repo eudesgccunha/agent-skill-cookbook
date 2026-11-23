@@ -44,7 +44,7 @@ Both families ship TDD, debugging and review skills. Use one per stage. Default 
 | Review before a PR | Pocock `code-review` | Checks the diff against repo standards and the originating spec, in parallel. Needs subagents (Pi: install the extension) and a spec or issue to compare. |
 | Review without a spec | Superpowers `requesting-code-review` | Shorter, no spec needed. |
 
-Rule: never run both skills of one stage in the same session. Write your choice in `CLAUDE.md` or `AGENTS.md`.
+Rule: never run both skills of one stage in the same session. Write your choice in `CLAUDE.md` or `AGENTS.md`. Full comparison and setup: [tradeoffs.md](tradeoffs.md).
 
 ## Caveman: keep 3
 

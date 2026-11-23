@@ -52,7 +52,7 @@ Rules:
 
 ## Raising a page to `tested`
 
-The preferred source of `tested` evidence is a [harness-bench](https://github.com/eudesgccunha/harness-bench) run: same tasks, same harness and model, with a no-skill control. Put in the basis the harness, model, task kinds, number of runs and the confidence interval. A result inside the noise does not justify a change. A skills axis for harness-bench is proposed, not built, so for now `tested` means you ran the skill yourself on real work and describe what happened.
+The preferred source of `tested` evidence is a [harness-bench](https://github.com/eudesgccunha/harness-bench) run: same tasks, same harness and model, with a no-skill control. Put in the basis the harness, model, task kinds, number of runs and the confidence interval. A result inside the noise does not justify a change. The [skills axis design](https://github.com/eudesgccunha/harness-bench/blob/main/docs/skills-axis.md) for harness-bench is proposed, not built, so for now `tested` means you ran the skill yourself on real work and describe what happened.
 
 ## Entry criteria for a skill or practice
 

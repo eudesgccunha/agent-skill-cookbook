@@ -6,7 +6,7 @@ The skills and practices one developer uses, with the evidence level of each. Co
 
 "Best" here means best **for the author's scenarios**: bug fixes, new features, Kubernetes manifests, architecture exploration and diagrams, on Pi, OpenCode and Claude Code. It does not mean best in the community. Your scenarios may differ, so read the trade-offs and test the picks on your own work.
 
-Every page says how it was checked (`tested`, `read` or `web`). Today almost all pages are `read` or `web`: the picks come from reading skill texts and docs, not from measurements. The plan is to measure them with [harness-bench](https://github.com/eudesgccunha/harness-bench), which ranks harness and model pairs by cost per solved task. A skills axis for it is designed but not built. Until a measurement covers a pick, treat it as the author's opinion.
+Every page says how it was checked (`tested`, `read` or `web`). Today almost all pages are `read` or `web`: the picks come from reading skill texts and docs, not from measurements. The plan is to measure them with [harness-bench](https://github.com/eudesgccunha/harness-bench), which ranks harness and model pairs by cost per solved task. A [skills axis](https://github.com/eudesgccunha/harness-bench/blob/main/docs/skills-axis.md) for it is designed but not built. Until a measurement covers a pick, treat it as the author's opinion.
 
 ## Tools at a glance
 

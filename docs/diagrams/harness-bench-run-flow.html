@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>harness-bench run flow</title>
+<style>
+  :root {
+    --bg: #fafaf9; --fg: #1c1917; --muted: #57534e;
+    --box: #ffffff; --line: #a8a29e; --accent: #0d6b5f; --guard: #9a3412; --guard-bg: #ffedd5;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1c1917; --fg: #f5f5f4; --muted: #a8a29e;
+      --box: #292524; --line: #78716c; --accent: #5eead4; --guard: #fdba74; --guard-bg: #431407;
+    }
+  }
+  body { margin: 0; padding: 16px; background: var(--bg); color: var(--fg);
+         font: 15px/1.5 system-ui, sans-serif; }
+  main { max-width: 760px; margin: 0 auto; }
+  h1 { font-size: 1.25rem; margin: 0 0 4px; }
+  p.sub { margin: 0 0 16px; color: var(--muted); }
+  svg { width: 100%; height: auto; display: block; }
+  .box { fill: var(--box); stroke: var(--line); stroke-width: 1.5; }
+  .guard { fill: var(--guard-bg); stroke: var(--guard); stroke-width: 1.5; }
+  .name { fill: var(--fg); font: 600 13px ui-monospace, monospace; }
+  .note { fill: var(--muted); font: 12px system-ui, sans-serif; }
+  .gnote { fill: var(--guard); font: 12px system-ui, sans-serif; }
+  .arrow { stroke: var(--accent); stroke-width: 2; fill: none; marker-end: url(#a); }
+  .legend { margin-top: 12px; color: var(--muted); font-size: 13px; }
+  .sw { display: inline-block; width: 12px; height: 12px; border-radius: 2px; vertical-align: -1px; margin-right: 4px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>harness-bench: one run, step by step</h1>
+  <p class="sub">What <code>cmd_run</code> does for each (harness, model, task). Line numbers refer to <code>harness_bench.py</code> in the harness-bench repo as of November 2026. Hover a box for its source.</p>
+
+  <svg viewBox="0 0 720 640" role="img" aria-label="Flow of cmd_run from environment setup to results.jsonl, then reconcile and report">
+    <defs>
+      <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+        <path d="M0 0L10 5L0 10z" fill="var(--accent)"/>
+      </marker>
+    </defs>
+
+    <g><title>base_env: harness_bench.py:472</title>
+      <rect class="guard" x="40" y="10" width="640" height="56" rx="8"/>
+      <text class="name" x="56" y="34">1. base_env(cfg)</text>
+      <text class="gnote" x="56" y="54">Allowlist env, spend key left out. Adds BENCH_TAG for LiteLLM tagging</text>
+    </g>
+    <path class="arrow" d="M360 66V92"/>
+
+    <g><title>prepare_workdir: harness_bench.py:480</title>
+      <rect class="guard" x="40" y="92" width="640" height="56" rx="8"/>
+      <text class="name" x="56" y="116">2. prepare_workdir(task, base, workdir)</text>
+      <text class="gnote" x="56" y="136">Fresh workdir outside the repo, no git history</text>
+    </g>
+    <path class="arrow" d="M360 148V174"/>
+
+    <g><title>make_baseline: harness_bench.py:495</title>
+      <rect class="box" x="40" y="174" width="640" height="56" rx="8"/>
+      <text class="name" x="56" y="198">3. make_baseline(workdir)</text>
+      <text class="note" x="56" y="218">Snapshot of the starting tree, used later for the audit diff</text>
+    </g>
+    <path class="arrow" d="M360 230V256"/>
+
+    <g><title>snapshot_protected: harness_bench.py:500</title>
+      <rect class="guard" x="40" y="256" width="640" height="56" rx="8"/>
+      <text class="name" x="56" y="280">4. snapshot_protected(task, workdir, snap)</text>
+      <text class="gnote" x="56" y="300">Copies protected_paths (tests) to a snapshot outside the workdir</text>
+    </g>
+    <path class="arrow" d="M360 312V338"/>
+
+    <g><title>run_proc via wrap: harness_bench.py:506</title>
+      <rect class="guard" x="40" y="338" width="640" height="56" rx="8"/>
+      <text class="name" x="56" y="362">5. run_proc(wrap(cfg, cmd, ...))</text>
+      <text class="gnote" x="56" y="382">Agent runs untrusted, no shell=True, inside the sandbox wrapper</text>
+    </g>
+    <path class="arrow" d="M360 394V420"/>
+
+    <g><title>PARSERS[...]: harness_bench.py:515</title>
+      <rect class="box" x="40" y="420" width="640" height="56" rx="8"/>
+      <text class="name" x="56" y="444">6. PARSERS[parser](stdout)</text>
+      <text class="note" x="56" y="464">One parser per harness. Unknown usage returns None, never 0</text>
+    </g>
+    <path class="arrow" d="M360 476V502"/>
+
+    <g><title>save_diff and restore_protected: harness_bench.py:519-520</title>
+      <rect class="guard" x="40" y="502" width="640" height="56" rx="8"/>
+      <text class="name" x="56" y="526">7. save_diff, then restore_protected</text>
+      <text class="gnote" x="56" y="546">Audit diff, then protected paths restored from the snapshot</text>
+    </g>
+    <path class="arrow" d="M360 558V584"/>
+
+    <g><title>results.jsonl append: harness_bench.py:539</title>
+      <rect class="box" x="40" y="584" width="300" height="48" rx="8"/>
+      <text class="name" x="56" y="607">8. results.jsonl</text>
+      <text class="note" x="56" y="625">Append one row. Logs redacted</text>
+    </g>
+    <g><title>cmd_reconcile: harness_bench.py:611, cmd_report: harness_bench.py:709</title>
+      <rect class="box" x="380" y="584" width="300" height="48" rx="8"/>
+      <text class="name" x="396" y="607">then reconcile, report</text>
+      <text class="note" x="396" y="625">Real cost from LiteLLM, then ranking</text>
+    </g>
+  </svg>
+
+  <p class="legend">
+    <span class="sw" style="background:var(--guard-bg);border:1px solid var(--guard)"></span>defense against the untrusted agent or repo &nbsp;
+    <span class="sw" style="background:var(--box);border:1px solid var(--line)"></span>regular step
+  </p>
+</main>
+</body>
+</html>

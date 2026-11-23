@@ -65,7 +65,7 @@ Three extensions cover the usual Pi setup: subagents, Cursor models and a LiteLL
 
 | Extension | What it adds | Install |
 |---|---|---|
-| `pi-subagents` | Subagents for delegation (required, see above). Several packages share this name under different scopes, so pick one and check its page | `pi install npm:<package>` |
+| `pi-subagents` | Subagents for delegation (required, see above) | `pi install npm:pi-subagents` |
 | `pi-cursor-sdk` | Cursor models inside Pi through the local `@cursor/sdk` runtime, for example `cursor/grok-4.6` | `pi install npm:pi-cursor-sdk` |
 | `pi-provider-litellm` | Models from a LiteLLM proxy, registered as Pi providers. Adds `/login litellm` and `/litellm-refresh` | `pi install npm:pi-provider-litellm` |
 

@@ -138,6 +138,8 @@ Prompt:
 
 Harness notes: CC can also publish the page as an artifact when you want to share it, and has Excalidraw tools for freehand drawing. OC and Pi write the file and you open it yourself. Plain HTML diffs as text, so changes still show up in review. Done when the file opens, renders and a teammate can match every box to code.
 
+Reference example: [docs/diagrams/harness-bench-run-flow.html](docs/diagrams/harness-bench-run-flow.html). Open it in a browser. It follows these rules: one idea, real function names, `path:line` in tooltips, light and dark mode, no external assets.
+
 ---
 
 ## Refactor

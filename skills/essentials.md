@@ -60,6 +60,24 @@ Optional: `caveman-review` (one-line findings), `caveman-stats` (usage), `cavecr
 
 Skip: `caveman-setup`, `caveman-discover`, `caveman-evidence-review`, `caveman-learn`, `caveman-manage`, `caveman-optimize`. They belong to Caveman Cloud (spend observability), not day-to-day coding. They send data to a third party, see [getting-started/security.md](../getting-started/security.md).
 
+## Security: Trail of Bits, keep 3
+
+Source: [trailofbits/skills](https://github.com/trailofbits/skills) (about 8.4k stars on 2026-11-23, CC-BY-SA-4.0). Read the `SKILL.md` of each plugin. Not run on real work yet. Install only from the `trailofbits` org: forks and mirrors exist.
+
+| Skill | Why keep it |
+|---|---|
+| `differential-review` | Security review of a PR or diff. Uses git blame, counts callers (blast radius), flags changed code with no test, writes a markdown report. Goes beyond `code-review`, which checks standards and spec. |
+| `fp-check` | Verdict TRUE or FALSE POSITIVE for a suspected bug, with evidence. Verifies findings, does not hunt for new ones. Run it after any scanner or AI review. |
+| `agentic-actions-auditor` | Static audit of GitHub Actions that run AI agents (Claude Code Action, Gemini CLI, Codex). Finds attacker input reaching the prompt, unsafe sandbox settings, wildcard allowlists. Reports only, does not edit. |
+
+Install, inside Claude Code: `/plugin marketplace add trailofbits/skills`, then `/plugin install differential-review@trailofbits` (same for the other two).
+
+Also built in: `/security-review` in Claude Code. The [Action version](https://github.com/anthropics/claude-code-security-review) is not hardened against prompt injection: use it on trusted PRs only.
+
+Skip unless the scenario fits: `building-secure-contracts` (smart contracts), `c-review` (C/C++), `testing-handbook-skills` (fuzzers, sanitizers).
+
+Security skills read your code and run `Bash`. Review a plugin before you install it, see [getting-started/security.md](../getting-started/security.md).
+
 ## Pi: required extension
 
 On Pi, add a subagent extension to this list. Several Superpowers skills and `cavecrew` depend on subagents. See [Pi extensions](../harnesses/pi.md#pi-install-a-subagent-extension).

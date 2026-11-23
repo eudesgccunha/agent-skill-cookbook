@@ -1,5 +1,7 @@
 # Harnesses
 
+> Last verified: 2026-11-23 · Level: web · Basis: vendor docs and the skills CLI README; Codex, Cursor, OpenCode and Pi not run
+
 How the same toolset applies to Claude Code, Codex, Cursor, OpenCode and Pi. Checked November 2026 against vendor docs and the `skills` CLI. Paths and flags change between versions, so verify before relying on them.
 
 ## What carries over

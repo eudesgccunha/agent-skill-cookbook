@@ -33,6 +33,10 @@ Pocock and Superpowers overlap on TDD, debugging and review. Pick one per stage 
 | [practices/](practices/README.md) | Cross-cutting good practice, starting with [cutting token cost](practices/token-cost.md) |
 | [examples/](examples/diagrams/harness-bench-run-flow.html) | Reference artifacts, such as an HTML diagram |
 
+## Contributing
+
+Read [CONTRIBUTING.md](CONTRIBUTING.md). Every page has a `Last verified` line with a date and an evidence level (`tested`, `read` or `web`). Run `python3 scripts/check.py` before a pull request.
+
 ## License
 
 MIT. See [LICENSE](LICENSE).

@@ -1,5 +1,7 @@
 # When to use each skill
 
+> Last verified: 2026-11-23 · Level: read · Basis: skill texts of the installed plugins; Ponytail from a third-party guide
+
 Descriptions come from the installed plugins (November 2026). Verify against your install with `/skills`.
 
 ## RTK

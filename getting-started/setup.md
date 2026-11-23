@@ -1,5 +1,7 @@
 # Setup
 
+> Last verified: 2026-11-23 · Level: read · Basis: Claude Code plugin commands checked on the author machine; Ponytail and RTK install not run
+
 Checked against Claude Code on Ubuntu, November 2026.
 
 ```bash

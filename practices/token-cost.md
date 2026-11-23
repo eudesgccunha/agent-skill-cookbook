@@ -1,5 +1,7 @@
 # Cutting token cost
 
+> Last verified: 2026-11-23 · Level: read · Basis: skill descriptions; savings not measured
+
 | Lever | Saves | Use when |
 |---|---|---|
 | RTK | Input tokens from command output | Always on |

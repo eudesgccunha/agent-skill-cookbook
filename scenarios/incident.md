@@ -1,5 +1,7 @@
 # Incident or live failure
 
+> Last verified: 2026-11-23 · Level: read · Basis: written from the skill texts and docs; the scenario was not run end to end
+
 [All scenarios](README.md)
 
 1. **Read-only first.** Logs, `kubectl get`, `kubectl describe`. No writes.

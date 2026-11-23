@@ -1,5 +1,7 @@
 # Essential skills
 
+> Last verified: 2026-11-23 · Level: read · Basis: skill texts of the installed plugins; picks are the author opinion
+
 You do not need every skill. This is the short list worth installing, and what to skip.
 
 ## Pocock: keep 7

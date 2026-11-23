@@ -1,5 +1,7 @@
 # Scenarios
 
+> Last verified: 2026-11-23 · Level: read · Basis: written from the skill texts and docs; the scenario was not run end to end
+
 Pick your task, follow the steps. Each scenario names the skills, what changes on Claude Code (CC), OpenCode (OC) and Pi, and how to know you are done.
 
 Skill names are in [skills/essentials.md](../skills/essentials.md). Install and paths per harness are in [harnesses/README.md](../harnesses/README.md).

@@ -1,5 +1,7 @@
 # Pi
 
+> Last verified: 2026-11-23 · Level: web · Basis: pi.dev package pages; extensions not installed or run
+
 Pi is minimal by design. These extensions fill the gaps. Back to [harnesses](README.md).
 
 ## Pi: install a subagent extension

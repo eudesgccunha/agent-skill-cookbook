@@ -1,5 +1,7 @@
 # Architecture exploration
 
+> Last verified: 2026-11-23 · Level: read · Basis: written from the skill texts and docs; the scenario was not run end to end
+
 [All scenarios](README.md)
 
 Goal: a correct mental model of unfamiliar code, with file references.

@@ -1,5 +1,7 @@
 # Bug fix
 
+> Last verified: 2026-11-23 · Level: read · Basis: written from the skill texts and docs; the scenario was not run end to end
+
 [All scenarios](README.md)
 
 Goal: fix the cause, not the symptom, with a test that proves it.

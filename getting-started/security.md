@@ -1,5 +1,7 @@
 # Security
 
+> Last verified: 2026-11-23 · Level: read · Basis: static audit of Superpowers 7.0.2, Pocock 1.3.1 and Caveman 15581d14007f; code not run under a network monitor
+
 What running these tools means for your data, on a personal or a company computer. Read this before you install anything.
 
 ## Short answer

@@ -1,5 +1,7 @@
 # Pocock vs Superpowers: trade-offs, setup and preferences
 
+> Last verified: 2026-11-23 · Level: read · Basis: skill texts of the installed plugins; no benchmark
+
 Both families ship TDD, debugging and review skills. This page compares them, lists what to configure before you use each one, and records the author's picks.
 
 Based on reading the installed skill texts (November 2026), not on a benchmark. Re-read the skills after an update, they change.

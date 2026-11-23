@@ -1,5 +1,7 @@
 # Kubernetes manifest
 
+> Last verified: 2026-11-23 · Level: read · Basis: written from the skill texts and docs; the scenario was not run end to end
+
 [All scenarios](README.md)
 
 Goal: a manifest that validates, shows a clean diff and reaches the cluster only through a PR.

@@ -3,7 +3,7 @@
 Checked against Claude Code on Ubuntu, November 2026.
 
 ```bash
-# RTK: install from https://github.com/rtk-ai/rtk, then
+# RTK: install from the RTK repo (see Sources), then
 rtk init -g
 rtk gain          # must print savings stats; "command not found" means wrong package
 

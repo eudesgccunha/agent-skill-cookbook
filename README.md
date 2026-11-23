@@ -1,6 +1,6 @@
 # agent-skill-cookbook
 
-Recipes for choosing the right agent skill for each workflow. Covers RTK, Superpowers, Matt Pocock's skills and Caveman, used with Claude Code.
+Recipes for choosing the right agent skill for each workflow. Covers RTK, Superpowers, Matt Pocock's skills, Caveman and Ponytail, across Claude Code, OpenCode and Pi (plus Codex and Cursor notes).
 
 ## Tools at a glance
 

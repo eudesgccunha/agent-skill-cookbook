@@ -52,3 +52,7 @@ Start here: [scenarios.md](scenarios.md) (bug fix, new feature, Kubernetes manif
 | `cavecrew` | Delegate search or small edits to cheap subagents | Token cost |
 
 Skill names follow the plugin versions listed in [setup](setup.md). Verify them with `/skills` in your install.
+
+## License
+
+MIT. See [LICENSE](LICENSE).

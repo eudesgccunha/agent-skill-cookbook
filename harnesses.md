@@ -90,7 +90,7 @@ Check after install: restart Pi, read the startup header for the loaded extensio
 - **Pi.** Minimal by design. Few built-ins, so skills carry more weight. Install a subagent extension (section above). `pi config` enables or disables individual skills and extensions.
 - **Codex.** Reads `AGENTS.md` before work starts. Put the workflow block there.
 
-## Instructions block for non-Claude harnesses
+## Instructions block for `AGENTS.md`
 
 Put in `AGENTS.md` (the same block [setup.md](setup.md) suggests; Claude Code reads it directly from v2.1.277 when no `CLAUDE.md` exists, otherwise through an `@AGENTS.md` import):
 

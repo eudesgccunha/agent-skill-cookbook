@@ -38,7 +38,7 @@ Start here: [scenarios.md](scenarios.md) (bug fix, new feature, Kubernetes manif
 | `grill-with-docs` | Design with a repo: interview plus ADRs and glossary | New feature |
 | `grilling` / `grill-me` | A plan or idea is vague, no repo | New feature |
 | `domain-modeling` | Terms are confusing, or a decision needs an ADR | New feature |
-| `tdd` | You want test-first work | New feature, bug fix |
+| `tdd` | Test-first work when you want a lighter loop than Superpowers TDD | New feature, bug fix |
 | `diagnosing-bugs` | Something is broken, flaky or slow | Bug fix |
 | `codebase-design` | You are shaping a module interface or seam | Refactor |
 | `code-review` | Before opening a PR | Review and PR |

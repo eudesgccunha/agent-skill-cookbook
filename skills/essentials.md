@@ -60,7 +60,7 @@ Skip: `caveman-setup`, `caveman-discover`, `caveman-evidence-review`, `caveman-l
 
 ## Pi: required extension
 
-On Pi, add a subagent extension to this list. Several Superpowers skills and `cavecrew` depend on subagents. See [harnesses/README.md](../harnesses/pi.md#pi-install-a-subagent-extension).
+On Pi, add a subagent extension to this list. Several Superpowers skills and `cavecrew` depend on subagents. See [Pi extensions](../harnesses/pi.md#pi-install-a-subagent-extension).
 
 ## RTK
 

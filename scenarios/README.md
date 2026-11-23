@@ -25,7 +25,7 @@ Skill names are in [skills/essentials.md](../skills/essentials.md). Install and 
 | | CC | OC | Pi |
 |---|---|---|---|
 | Skills load | Auto-picked by Superpowers hook, or `/name` | Invoke by name, or list them in `AGENTS.md` | Invoke by name, or list them in `AGENTS.md` |
-| Subagents (`cavecrew`, `subagent-driven-development`) | Yes | Yes | Only after you install a subagent extension ([harnesses/README.md](../harnesses/pi.md#pi-install-a-subagent-extension)). Without it, one thread |
+| Subagents (`cavecrew`, `subagent-driven-development`) | Yes | Yes | Only after you install a subagent extension ([Pi extensions](../harnesses/pi.md#pi-install-a-subagent-extension)). Without it, one thread |
 | Instructions file | `AGENTS.md` (v2.1.277+ without `CLAUDE.md`, else `@AGENTS.md` import) | `AGENTS.md` | `AGENTS.md` |
 | RTK hook | `rtk init -g` | `rtk init -g --opencode` | `rtk init -g --agent pi` |
 

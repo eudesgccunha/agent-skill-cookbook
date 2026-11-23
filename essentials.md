@@ -32,6 +32,20 @@ Skip `brainstorming` (grill covers design). The rest (`subagent-driven-developme
 
 Superpowers installs as a whole plugin on Claude Code, so every skill loads. Selective install is not confirmed. Disable what you skip through the "Superpowers" line in your `CLAUDE.md`.
 
+## When Pocock and Superpowers overlap
+
+Both families ship TDD, debugging and review skills. Use one per stage. Default picks, based on reading the skill texts (not on a benchmark):
+
+| Stage | Pick | Why |
+|---|---|---|
+| TDD | Superpowers `test-driven-development` | Long and strict ("Iron Law", verify red, then green). Good when the agent skips tests. Pocock `tdd` is a 38-line loop: pick it to save tokens or when you trust the agent. |
+| Debugging, hard or flaky bug | Pocock `diagnosing-bugs` | Starts by building a feedback loop (failing test, replay, bisect, fuzz), then tests hypotheses. Fits flaky and performance bugs. |
+| Debugging, ordinary failure | Superpowers `systematic-debugging` | Four phases, no fix before root cause. Fits a failing test or clear error. |
+| Review before a PR | Pocock `code-review` | Checks the diff against repo standards and the originating spec, in parallel. Needs subagents (Pi: install the extension) and a spec or issue to compare. |
+| Review without a spec | Superpowers `requesting-code-review` | Shorter, no spec needed. |
+
+Rule: never run both skills of one stage in the same session. Write your choice in `CLAUDE.md` or `AGENTS.md`.
+
 ## Caveman: keep 3
 
 | Skill | Why keep it |

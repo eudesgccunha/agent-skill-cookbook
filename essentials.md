@@ -30,7 +30,7 @@ Add later if the need shows up: `tdd`, `to-spec`, `implement`, `prototype`, `res
 
 Skip `brainstorming` (grill covers design). The rest (`subagent-driven-development`, `dispatching-parallel-agents`, `using-git-worktrees`, `finishing-a-development-branch`) help on larger plans. Add them when you run multi-task plans.
 
-Superpowers installs as a whole plugin on Claude Code, so every skill loads. Selective install is not confirmed. Disable what you skip through the "Superpowers" line in your `CLAUDE.md`.
+Superpowers installs as a whole plugin on Claude Code, so every skill loads. Selective install is not confirmed. Disable what you skip through the "Superpowers" line in your `AGENTS.md`.
 
 ## When Pocock and Superpowers overlap
 
@@ -44,7 +44,7 @@ Both families ship TDD, debugging and review skills. Use one per stage. Default 
 | Review before a PR | Pocock `code-review` | Checks the diff against repo standards and the originating spec, in parallel. Needs subagents (Pi: install the extension) and a spec or issue to compare. |
 | Review without a spec | Superpowers `requesting-code-review` | Shorter, no spec needed. |
 
-Rule: never run both skills of one stage in the same session. Write your choice in `CLAUDE.md` or `AGENTS.md`. Full comparison and setup: [tradeoffs.md](tradeoffs.md).
+Rule: never run both skills of one stage in the same session. Write your choice in `AGENTS.md`. Full comparison and setup: [tradeoffs.md](tradeoffs.md).
 
 ## Caveman: keep 3
 

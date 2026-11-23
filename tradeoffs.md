@@ -40,7 +40,7 @@ Superpowers also has `receiving-code-review` (verify feedback before applying it
 
 ### Rule
 
-Never run both skills of one stage in the same session. State your choice in `CLAUDE.md` or `AGENTS.md`.
+Never run both skills of one stage in the same session. State your choice in `AGENTS.md`.
 
 ## Setup before you use them
 
@@ -51,7 +51,7 @@ Never run both skills of one stage in the same session. State your choice in `CL
    - `docs/agents/issue-tracker.md`: where issues live. GitHub (needs the `gh` CLI), GitLab (needs `glab`), local markdown under `.scratch/`, or other.
    - `docs/agents/domain.md`: where `GLOSSARY.md` and ADRs live. Single context by default, multi-context for monorepos.
    - `docs/agents/triage-labels.md`: only if the `triage` skill is installed. Defaults: `needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`.
-   - An `## Agent skills` block in your existing `CLAUDE.md` or `AGENTS.md`. It edits the one that exists and asks before it creates one.
+   - An `## Agent skills` block in your existing `CLAUDE.md` or `AGENTS.md`. It edits `CLAUDE.md` first when both exist, and asks before it creates one. If you use the `@AGENTS.md` shim, move the block into `AGENTS.md` ([setup.md](setup.md#one-instructions-file-agentsmd)).
 3. **For `code-review`:**
    - Have a spec source: an issue reference in the commit messages, a path you pass, or a file under `docs/`, `specs/` or `.scratch/`. With none, the Spec review is skipped.
    - Document your standards in `CODING_STANDARDS.md`, `CONTRIBUTING.md` or similar. With none, only the smell baseline applies.
@@ -63,18 +63,18 @@ Never run both skills of one stage in the same session. State your choice in `CL
 
 1. **Install** the plugin (Claude Code: `/plugin install superpowers@claude-plugins-official`).
 2. **Restart the agent** so the session-start hook loads `using-superpowers`. Without the hook, skills do not auto-load. Name them in your prompt instead.
-3. **Add the priority block to `CLAUDE.md` or `AGENTS.md`:**
+3. **Add the priority block to `AGENTS.md`:**
    ```markdown
    - Do not use Superpowers brainstorming for design. Use Superpowers for plan, TDD, debugging and review.
    - These instructions take priority over skills.
    ```
 4. **Subagent skills** (`subagent-driven-development`, `dispatching-parallel-agents`) need subagent support. Pi: `pi-subagents`. Without it, use `executing-plans`.
 5. **`using-git-worktrees`:** needs a git repo. Keep the working tree committed or stashed before you start.
-6. **Test command:** put the project's test and lint commands in `CLAUDE.md` or `AGENTS.md`. `verification-before-completion` runs what it finds there.
+6. **Test command:** put the project's test and lint commands in `AGENTS.md`. `verification-before-completion` runs what it finds there.
 
 ### Both
 
-- One instructions file with your stage choices, so the agent never picks two skills for one stage.
+- One instructions file (`AGENTS.md`) with your stage choices, so the agent never picks two skills for one stage.
 - A `docs/adr/` folder, so decisions have a place to land.
 - Do not install the same skill through a plugin and through `npx skills`.
 

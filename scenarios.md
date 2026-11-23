@@ -26,7 +26,7 @@ Skill names are in [essentials.md](essentials.md). Install and paths per harness
 |---|---|---|---|
 | Skills load | Auto-picked by Superpowers hook, or `/name` | Invoke by name, or list them in `AGENTS.md` | Invoke by name, or list them in `AGENTS.md` |
 | Subagents (`cavecrew`, `subagent-driven-development`) | Yes | Yes | Only after you install a subagent extension ([harnesses.md](harnesses.md#pi-install-a-subagent-extension)). Without it, one thread |
-| Instructions file | `CLAUDE.md` | `AGENTS.md` | `AGENTS.md` (or `CLAUDE.md`) |
+| Instructions file | `CLAUDE.md` importing `AGENTS.md` | `AGENTS.md` | `AGENTS.md` |
 | RTK hook | `rtk init -g` | `rtk init -g --opencode` | `rtk init -g --agent pi` |
 
 If a skill does not load by itself, name it in the prompt: "use systematic-debugging".
@@ -76,7 +76,7 @@ Harness notes: CC can run independent plan tasks through `subagent-driven-develo
 
 Goal: a manifest that validates, shows a clean diff and reaches the cluster only through a PR.
 
-No skill in this toolset covers Kubernetes. The safety comes from rules in your instructions file plus validation commands. Put this block in `CLAUDE.md` (CC) or `AGENTS.md` (OC, Pi):
+No skill in this toolset covers Kubernetes. The safety comes from rules in your instructions file plus validation commands. Put this block in `AGENTS.md` (Claude Code reaches it through the `@AGENTS.md` import, see [setup.md](setup.md)):
 
 ```markdown
 ## Kubernetes / GitOps

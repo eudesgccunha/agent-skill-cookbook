@@ -27,7 +27,21 @@ Run `/setup-matt-pocock-skills` once per repo.
 
 Do not install the same skill through a plugin and through `npx skills`. It duplicates it.
 
-## Suggested `CLAUDE.md` block
+## One instructions file: `AGENTS.md`
+
+Write your stage choices, test commands and rules in `AGENTS.md`. Pi, OpenCode and Codex read it directly, and Cursor lists it among its rule types (unconfirmed in the docs found). **Claude Code reads `CLAUDE.md`, not `AGENTS.md`.** Bridge it with a one-line `CLAUDE.md`:
+
+```markdown
+@AGENTS.md
+```
+
+Claude Code expands the import, so `AGENTS.md` stays the single source. Do not copy the content into both files.
+
+Caveats:
+- `setup-matt-pocock-skills` edits `CLAUDE.md` when it exists, even if it only holds the import. Move the `## Agent skills` block it writes into `AGENTS.md` afterwards, or run it before you create the `CLAUDE.md` shim.
+- If a tool still ignores `AGENTS.md`, check its docs. Pi falls back to `CLAUDE.md` only when no `AGENTS.md` exists.
+
+## Suggested `AGENTS.md` block
 
 ```markdown
 ## Workflow

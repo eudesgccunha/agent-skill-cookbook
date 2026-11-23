@@ -53,7 +53,7 @@ Not installed in the author's setup. The notes below come from its README as sum
 
 - **What:** makes the agent write less code (YAGNI).
 - **Use when:** the agent over-builds, adds abstractions nobody asked for, or inflates diffs.
-- **Skip when:** the agent already stays in scope. Superpowers plus a tight `CLAUDE.md` is often enough.
+- **Skip when:** the agent already stays in scope. Superpowers plus a tight `AGENTS.md` is often enough.
 - **Toggle:** `/ponytail` to enable, "stop ponytail" to disable.
 - **Install (Claude Code):**
   ```

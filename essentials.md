@@ -40,9 +40,13 @@ Superpowers installs as a whole plugin on Claude Code, so every skill loads. Sel
 | `caveman-commit` | Compact Conventional Commits. |
 | `caveman-compress` | Shrinks large memory files such as `CLAUDE.md`. |
 
-Optional: `caveman-review` (one-line findings), `caveman-stats` (usage), `cavecrew` (Claude Code only, needs subagents).
+Optional: `caveman-review` (one-line findings), `caveman-stats` (usage), `cavecrew` (needs subagents: native on Claude Code, an extension on Pi).
 
 Skip: `caveman-setup`, `caveman-discover`, `caveman-evidence-review`, `caveman-learn`, `caveman-manage`, `caveman-optimize`. They belong to Caveman Cloud (spend observability), not day-to-day coding.
+
+## Pi: required extension
+
+On Pi, add a subagent extension to this list. Several Superpowers skills and `cavecrew` depend on subagents. See [harnesses.md](harnesses.md#pi-install-a-subagent-extension).
 
 ## RTK
 

@@ -12,7 +12,7 @@ Recipes for choosing the right agent skill for each workflow. Covers RTK, Superp
 | Caveman | Short replies, fewer output tokens | Mode you toggle |
 | Ponytail (optional) | Makes the agent write less code | Mode you toggle |
 
-Recommended base: RTK + Pocock (design) + Superpowers (execution). Caveman and Ponytail are optional.
+Recommended base: RTK + Pocock (design) + Superpowers (execution). On Pi, also install a subagent extension ([harnesses.md](harnesses.md#pi-install-a-subagent-extension)). Caveman and Ponytail are optional.
 
 ## Rule of thumb
 

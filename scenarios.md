@@ -25,7 +25,7 @@ Skill names are in [essentials.md](essentials.md). Install and paths per harness
 | | CC | OC | Pi |
 |---|---|---|---|
 | Skills load | Auto-picked by Superpowers hook, or `/name` | Invoke by name, or list them in `AGENTS.md` | Invoke by name, or list them in `AGENTS.md` |
-| Subagents (`cavecrew`, `subagent-driven-development`) | Yes | Yes | No. Do the work in one thread |
+| Subagents (`cavecrew`, `subagent-driven-development`) | Yes | Yes | Only after you install a subagent extension ([harnesses.md](harnesses.md#pi-install-a-subagent-extension)). Without it, one thread |
 | Instructions file | `CLAUDE.md` | `AGENTS.md` | `AGENTS.md` (or `CLAUDE.md`) |
 | RTK hook | `rtk init -g` | `rtk init -g --opencode` | `rtk init -g --agent pi` |
 
@@ -47,7 +47,7 @@ Goal: fix the cause, not the symptom, with a test that proves it.
 Prompt:
 > Use diagnosing-bugs. Symptom: <what>. Repro: <how>. Do not edit until you show evidence for the cause.
 
-Harness notes: Pi has no subagents, so keep the log reading inside the main thread and let RTK trim output. Done when the new test fails before the fix and passes after.
+Harness notes: on Pi without a subagent extension, keep the log reading in the main thread and let RTK trim output. With the extension, delegate log reading to a subagent. Done when the new test fails before the fix and passes after.
 
 ---
 
@@ -68,7 +68,7 @@ Turn Caveman on from step 3. Keep it off for steps 1 and 2.
 Prompt:
 > Use grill-with-docs. Feature: <what>. Constraints: <list>. Ask me one question at a time.
 
-Harness notes: CC can run independent plan tasks through `subagent-driven-development`. OC can too. Pi runs the plan task by task in one thread (`executing-plans`). Done when plan tasks are checked off, tests pass and ADRs are written.
+Harness notes: CC can run independent plan tasks through `subagent-driven-development`. OC can too. Pi can too once the subagent extension is installed. Without it, Pi runs the plan task by task in one thread (`executing-plans`). Done when plan tasks are checked off, tests pass and ADRs are written.
 
 ---
 
@@ -114,7 +114,7 @@ Goal: a correct mental model of unfamiliar code, with file references.
 Prompt:
 > Map this repo: entry points, main modules, data flow. Read only. Cite path:line for each claim. Say what you could not confirm.
 
-Harness notes: Pi has no subagents, so run the exploration first in a fresh session to keep the context clean. Done when every claim has a file reference and unknowns are listed, not guessed.
+Harness notes: on Pi, use the subagent extension for the exploration so reads stay out of the main context. Without it, run the exploration in a fresh session. Done when every claim has a file reference and unknowns are listed, not guessed.
 
 ---
 
@@ -201,4 +201,5 @@ Use `research` for facts from primary sources. It saves a Markdown file in the r
 - Ask for evidence: file and line, command output, test result.
 - RTK runs in the background. Check it with `rtk gain`.
 - Caveman: on for execution, off for design and teaching.
+- On Pi, check that a subagent extension is installed before you start a scenario that delegates.
 - If a skill seems missing, run `/skills` (CC) or list the skills folder (OC, Pi), then name the skill in your prompt.

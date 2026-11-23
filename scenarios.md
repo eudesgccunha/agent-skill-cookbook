@@ -120,21 +120,23 @@ Harness notes: on Pi, use the subagent extension for the exploration so reads st
 
 ## Diagram
 
-Goal: a diagram that matches the code, in text so it diffs and reviews well.
+Goal: a diagram that matches the code, as a single HTML file you open in a browser.
 
-No skill in this toolset draws diagrams. Use Mermaid in Markdown: portable across all three harnesses, and GitHub renders it.
+No skill in this toolset draws diagrams. The agent writes the HTML itself, so the prompt carries the rules. The method works the same on Claude Code, OpenCode and Pi.
 
 1. **Read first.** Run [Architecture exploration](#architecture-exploration) on the part you draw. Never draw from memory.
-2. **Pick the type.** Components and flow: `flowchart`. Request sequence: `sequenceDiagram`. Data model: `erDiagram`. States: `stateDiagram-v2`.
-3. **Draw one idea per diagram.** About 10 nodes max. Split larger views.
-4. **Check it renders.** Preview on GitHub or run the Mermaid CLI (`npx @mermaid-js/mermaid-cli -i in.md -o out.svg`, untested here). A syntax error is the common failure.
-5. **Cross-check labels** against code names (service, function, table).
-6. **Keep it near the code:** `docs/` or the ADR it explains.
+2. **Pick the form.** Components and flow: boxes and arrows. Request sequence: lifelines with numbered steps. Data model: tables with relation lines. States: nodes with labeled transitions.
+3. **Draw one idea per diagram.** About 10 nodes max. Split larger views into separate files or sections.
+4. **Write one self-contained `.html` file.** Inline SVG (or HTML and CSS), inline styles, no build step, no external scripts or fonts. It must open from disk and work offline.
+5. **Make it readable.** Short labels, arrows with direction, a legend if colors carry meaning, readable in light and dark mode, no horizontal page scroll on a laptop.
+6. **Tie it to the code.** Put the real name (service, function, table) in each box. Add the source `path:line` as a tooltip (`<title>` inside the SVG element) or a small caption.
+7. **Check it.** Open the file in a browser and confirm it renders. Where the harness has a browser tool, ask the agent to screenshot it. Check each label against the code.
+8. **Keep it near the code:** `docs/diagrams/<name>.html`, linked from the ADR or README it explains.
 
 Prompt:
-> Draw a Mermaid sequenceDiagram of <flow>. Read the code first and use real names. Show the file each step comes from in a comment.
+> Draw a diagram of <flow> as one self-contained HTML file with inline SVG, no external scripts. Read the code first and use real names. Put the source path:line of each box in its tooltip. Save it as docs/diagrams/<name>.html and tell me how you checked it renders.
 
-Harness notes: CC with the Excalidraw or artifact tools can draw visuals interactively. The Mermaid route works everywhere. Done when it renders and a teammate can match every box to code.
+Harness notes: CC can also publish the page as an artifact when you want to share it, and has Excalidraw tools for freehand drawing. OC and Pi write the file and you open it yourself. Plain HTML diffs as text, so changes still show up in review. Done when the file opens, renders and a teammate can match every box to code.
 
 ---
 

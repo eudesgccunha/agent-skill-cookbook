@@ -29,17 +29,26 @@ Do not install the same skill through a plugin and through `npx skills`. It dupl
 
 ## One instructions file: `AGENTS.md`
 
-Write your stage choices, test commands and rules in `AGENTS.md`. Pi, OpenCode and Codex read it directly, and Cursor lists it among its rule types (unconfirmed in the docs found). **Claude Code reads `CLAUDE.md`, not `AGENTS.md`.** Bridge it with a one-line `CLAUDE.md`:
+Write your stage choices, test commands and rules in `AGENTS.md`. Pi, OpenCode and Codex read it directly. Cursor lists it among its rule types (unconfirmed in the docs found).
 
-```markdown
-@AGENTS.md
-```
+**Claude Code** (official memory docs, checked November 2026):
+- From **v2.1.277** it reads `AGENTS.md` when no `CLAUDE.md` or `CLAUDE.local.md` exists in the working directory or above. If both files exist, it reads only `CLAUDE.md`.
+- On older versions, or when a `CLAUDE.md` exists, add a one-line `CLAUDE.md` that imports it:
 
-Claude Code expands the import, so `AGENTS.md` stays the single source. Do not copy the content into both files.
+  ```markdown
+  @AGENTS.md
+  ```
+
+  Claude Code skips an `AGENTS.md` it already loaded, so nothing is read twice. A symlink (`ln -s AGENTS.md CLAUDE.md`) also works.
+- The "Project instructions" setting in `/config` controls this behavior.
+- Run `/memory` to see which files loaded. Check `claude --version` first.
+- A stray `CLAUDE.local.md` blocks the fallback. Remove it or import `AGENTS.md` from it.
+
+Do not copy the content into both files.
 
 Caveats:
-- `setup-matt-pocock-skills` edits `CLAUDE.md` when it exists, even if it only holds the import. Move the `## Agent skills` block it writes into `AGENTS.md` afterwards, or run it before you create the `CLAUDE.md` shim.
-- If a tool still ignores `AGENTS.md`, check its docs. Pi falls back to `CLAUDE.md` only when no `AGENTS.md` exists.
+- `setup-matt-pocock-skills` edits `CLAUDE.md` when it exists, and `AGENTS.md` otherwise. With no `CLAUDE.md` in the repo, it writes the `## Agent skills` block into `AGENTS.md`. If you use the import shim, move the block into `AGENTS.md` afterwards.
+- Pi falls back to `CLAUDE.md` only when no `AGENTS.md` exists.
 
 ## Suggested `AGENTS.md` block
 
@@ -57,3 +66,4 @@ Caveats:
 - Pocock skills: https://github.com/mattpocock/skills
 - Caveman: https://github.com/JuliusBrussee/caveman
 - Ponytail: https://github.com/DietrichGebert/ponytail
+- Claude Code memory docs: https://code.claude.com/docs/en/memory

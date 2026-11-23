@@ -51,7 +51,7 @@ Never run both skills of one stage in the same session. State your choice in `AG
    - `docs/agents/issue-tracker.md`: where issues live. GitHub (needs the `gh` CLI), GitLab (needs `glab`), local markdown under `.scratch/`, or other.
    - `docs/agents/domain.md`: where `GLOSSARY.md` and ADRs live. Single context by default, multi-context for monorepos.
    - `docs/agents/triage-labels.md`: only if the `triage` skill is installed. Defaults: `needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`.
-   - An `## Agent skills` block in your existing `CLAUDE.md` or `AGENTS.md`. It edits `CLAUDE.md` first when both exist, and asks before it creates one. If you use the `@AGENTS.md` shim, move the block into `AGENTS.md` ([setup.md](setup.md#one-instructions-file-agentsmd)).
+   - An `## Agent skills` block in your existing `CLAUDE.md` or `AGENTS.md`. It edits `CLAUDE.md` first when it exists, then `AGENTS.md`, and asks before it creates one. If you use an `@AGENTS.md` shim, move the block into `AGENTS.md` ([setup.md](setup.md#one-instructions-file-agentsmd)).
 3. **For `code-review`:**
    - Have a spec source: an issue reference in the commit messages, a path you pass, or a file under `docs/`, `specs/` or `.scratch/`. With none, the Spec review is skipped.
    - Document your standards in `CODING_STANDARDS.md`, `CONTRIBUTING.md` or similar. With none, only the smell baseline applies.

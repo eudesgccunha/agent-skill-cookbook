@@ -8,7 +8,7 @@ All five read the same skill format: a folder with a `SKILL.md`. So Pocock, Supe
 
 | | Claude Code | Codex | Cursor | OpenCode | Pi |
 |---|---|---|---|---|---|
-| Instructions file | `CLAUDE.md` (import `AGENTS.md` with `@AGENTS.md`) | `AGENTS.md` (`~/.codex/AGENTS.md` for user level) | rules and `AGENTS.md` | `AGENTS.md` | `AGENTS.md`, falls back to `CLAUDE.md` |
+| Instructions file | `CLAUDE.md`, or `AGENTS.md` from v2.1.277 when no `CLAUDE.md` exists (else import with `@AGENTS.md`) | `AGENTS.md` (`~/.codex/AGENTS.md` for user level) | rules and `AGENTS.md` | `AGENTS.md` | `AGENTS.md`, falls back to `CLAUDE.md` |
 | Skills dir (project) | `.claude/skills` | `.agents/skills` | `.agents/skills`, `.cursor/skills` | `.opencode/skills` | `.pi/skills` |
 | Skills dir (user) | `~/.claude/skills` | `~/.agents/skills` (older docs: `~/.codex/skills`) | `~/.agents/skills`, `~/.cursor/skills` | `~/.config/opencode/skills` | `~/.pi/agent/skills` |
 | Plugins | Yes, `/plugin` | Skills only (as far as found) | Skills, rules | Skills, plugins | Packages (`pi install`) |
@@ -92,7 +92,7 @@ Check after install: restart Pi, read the startup header for the loaded extensio
 
 ## Instructions block for non-Claude harnesses
 
-Put in `AGENTS.md` (the same block [setup.md](setup.md) suggests; Claude Code reaches it through the `@AGENTS.md` import):
+Put in `AGENTS.md` (the same block [setup.md](setup.md) suggests; Claude Code reads it directly from v2.1.277 when no `CLAUDE.md` exists, otherwise through an `@AGENTS.md` import):
 
 ```markdown
 ## Workflow

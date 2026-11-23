@@ -46,16 +46,16 @@ Never run both skills of one stage in the same session. State your choice in `AG
 
 ### Pocock
 
-1. **Install** (see [harnesses.md](harnesses.md)).
+1. **Install** (see [harnesses/README.md](../harnesses/README.md)).
 2. **Run `setup-matt-pocock-skills` once per repo.** It is prompt-driven: it explores the repo, proposes answers, you confirm. It writes:
    - `docs/agents/issue-tracker.md`: where issues live. GitHub (needs the `gh` CLI), GitLab (needs `glab`), local markdown under `.scratch/`, or other.
    - `docs/agents/domain.md`: where `GLOSSARY.md` and ADRs live. Single context by default, multi-context for monorepos.
    - `docs/agents/triage-labels.md`: only if the `triage` skill is installed. Defaults: `needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`.
-   - An `## Agent skills` block in your existing `CLAUDE.md` or `AGENTS.md`. It edits `CLAUDE.md` first when it exists, then `AGENTS.md`, and asks before it creates one. If you use an `@AGENTS.md` shim, move the block into `AGENTS.md` ([setup.md](setup.md#one-instructions-file-agentsmd)).
+   - An `## Agent skills` block in your existing `CLAUDE.md` or `AGENTS.md`. It edits `CLAUDE.md` first when it exists, then `AGENTS.md`, and asks before it creates one. If you use an `@AGENTS.md` shim, move the block into `AGENTS.md` ([getting-started/setup.md](../getting-started/setup.md#one-instructions-file-agentsmd)).
 3. **For `code-review`:**
    - Have a spec source: an issue reference in the commit messages, a path you pass, or a file under `docs/`, `specs/` or `.scratch/`. With none, the Spec review is skipped.
    - Document your standards in `CODING_STANDARDS.md`, `CONTRIBUTING.md` or similar. With none, only the smell baseline applies.
-   - Subagent support. On Pi, install `pi-subagents` ([harnesses.md](harnesses.md#pi-install-a-subagent-extension)).
+   - Subagent support. On Pi, install `pi-subagents` ([harnesses/README.md](../harnesses/pi.md#pi-install-a-subagent-extension)).
 4. **For `tdd` and `diagnosing-bugs`:** create `GLOSSARY.md` and `docs/adr/` (through `grill-with-docs` or `domain-modeling`). Both skills read them when they exist. They work without them.
 5. **For `to-spec`, `to-tickets`, `triage`:** the issue tracker from step 2 must work. Run `gh auth status` first.
 

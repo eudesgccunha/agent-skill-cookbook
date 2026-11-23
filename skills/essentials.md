@@ -44,7 +44,7 @@ Both families ship TDD, debugging and review skills. Use one per stage. Default 
 | Review before a PR | Pocock `code-review` | Checks the diff against repo standards and the originating spec, in parallel. Needs subagents (Pi: install the extension) and a spec or issue to compare. |
 | Review without a spec | Superpowers `requesting-code-review` | Shorter, no spec needed. |
 
-Rule: never run both skills of one stage in the same session. Write your choice in `AGENTS.md`. Full comparison and setup: [tradeoffs.md](tradeoffs.md).
+Rule: never run both skills of one stage in the same session. Write your choice in `AGENTS.md`. Full comparison and setup: [skills/tradeoffs.md](tradeoffs.md).
 
 ## Caveman: keep 3
 
@@ -52,19 +52,19 @@ Rule: never run both skills of one stage in the same session. Write your choice 
 |---|---|
 | `caveman` | Shorter replies in execution phases. |
 | `caveman-commit` | Compact Conventional Commits. |
-| `caveman-compress` | Shrinks large memory files such as `CLAUDE.md`. Sends the file to the model vendor, see [security.md](security.md). |
+| `caveman-compress` | Shrinks large memory files such as `CLAUDE.md`. Sends the file to the model vendor, see [getting-started/security.md](../getting-started/security.md). |
 
 Optional: `caveman-review` (one-line findings), `caveman-stats` (usage), `cavecrew` (needs subagents: native on Claude Code, an extension on Pi).
 
-Skip: `caveman-setup`, `caveman-discover`, `caveman-evidence-review`, `caveman-learn`, `caveman-manage`, `caveman-optimize`. They belong to Caveman Cloud (spend observability), not day-to-day coding. They send data to a third party, see [security.md](security.md).
+Skip: `caveman-setup`, `caveman-discover`, `caveman-evidence-review`, `caveman-learn`, `caveman-manage`, `caveman-optimize`. They belong to Caveman Cloud (spend observability), not day-to-day coding. They send data to a third party, see [getting-started/security.md](../getting-started/security.md).
 
 ## Pi: required extension
 
-On Pi, add a subagent extension to this list. Several Superpowers skills and `cavecrew` depend on subagents. See [harnesses.md](harnesses.md#pi-install-a-subagent-extension).
+On Pi, add a subagent extension to this list. Several Superpowers skills and `cavecrew` depend on subagents. See [harnesses/README.md](../harnesses/pi.md#pi-install-a-subagent-extension).
 
 ## RTK
 
-No skill to pick. Install the hook for your harness (see [harnesses.md](harnesses.md)).
+No skill to pick. Install the hook for your harness (see [harnesses/README.md](../harnesses/README.md)).
 
 ## Ponytail
 

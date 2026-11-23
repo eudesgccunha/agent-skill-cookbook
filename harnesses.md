@@ -41,23 +41,24 @@ Do not install the same skill by plugin and by `npx skills`. It duplicates.
 
 Pi has no built-in subagents. Several skills and scenarios in this cookbook delegate work to subagents (`subagent-driven-development`, `dispatching-parallel-agents`, `cavecrew`, the exploration step in [scenarios.md](scenarios.md)). **On Pi, install a subagent extension before you rely on them.** Without it, run everything in one thread.
 
-Community packages found on pi.dev (none is official, versions as listed in November 2026):
+Use `pi-subagents` by nicopreme, from the pi.dev packages tab:
 
-| Package | Install | Notes |
-|---|---|---|
-| `@tintinweb/pi-subagents` | `pi install npm:@tintinweb/pi-subagents` | Claude Code-style autonomous subagents. Closest to the Claude Code workflow. |
-| `@narumitw/pi-subagents` | `pi install npm:@narumitw/pi-subagents` | Most downloaded in the listing. Try it first with `pi -e npm:@narumitw/pi-subagents`. |
-| `@mjakl/pi-subagent` | `pi install npm:@mjakl/pi-subagent` | Agents are Markdown files. Needs Pi 0.80.5 or newer. |
-| `@johnnywu/pi-subagents` | `pi install npm:@johnnywu/pi-subagents` | Agents in `.pi/agents/*.md`, delegated through a `subagent` tool. |
+```bash
+pi install npm:pi-subagents
+```
 
-Choose one. Do not install two, the tools can clash.
+- Needs Pi 1.2.0 or newer (listing: version 0.70.1, MIT, November 2026).
+- Several forks with similar names exist on pi.dev (for example `@whynothugo/pi-subagents`, `@piotr-oles/pi-subagents`). Install the unscoped `pi-subagents` and confirm the author on its page.
+- Run `/subagents-doctor` after install to check the setup.
+- Do not install a second subagent extension next to it. The tools can clash.
 
 Pi packages run code and shape agent behavior. Read the package source before you install it. Check the package page for the current version, because the listing changes.
 
 Verify after install:
 1. Restart Pi. The startup header lists loaded extensions and skills.
-2. Ask: "Use a subagent to list the top-level folders of this repo." The agent should call the subagent tool.
-3. Manage what loads with `pi config`.
+2. Run `/subagents-doctor`.
+3. Ask: "Use a subagent to list the top-level folders of this repo." The agent should call the subagent tool.
+4. Manage what loads with `pi config`.
 
 ## Pi: recommended extension set
 
@@ -65,7 +66,7 @@ Three extensions cover the usual Pi setup: subagents, Cursor models and a LiteLL
 
 | Extension | What it adds | Install |
 |---|---|---|
-| `pi-subagents` | Subagents for delegation (required, see above) | `pi install npm:pi-subagents` |
+| `pi-subagents` (nicopreme) | Subagents for delegation (required, see above) | `pi install npm:pi-subagents` |
 | `pi-cursor-sdk` | Cursor models inside Pi through the local `@cursor/sdk` runtime, for example `cursor/grok-4.6` | `pi install npm:pi-cursor-sdk` |
 | `pi-provider-litellm` | Models from a LiteLLM proxy, registered as Pi providers. Adds `/login litellm` and `/litellm-refresh` | `pi install npm:pi-provider-litellm` |
 
@@ -107,5 +108,5 @@ Put in `AGENTS.md` (same content as the `CLAUDE.md` block in [setup.md](setup.md
 - https://developers.openai.com/codex/skills (Codex)
 - https://cursor.com/docs/skills (Cursor)
 - https://opencode.ai/docs/skills (OpenCode)
-- https://pi.dev (Pi) and its package pages: [pi-cursor-sdk](https://pi.dev/packages/pi-cursor-sdk), [pi-provider-litellm](https://pi.dev/packages/pi-provider-litellm) and the subagent extensions
+- https://pi.dev (Pi) and its package pages: [pi-cursor-sdk](https://pi.dev/packages/pi-cursor-sdk), [pi-provider-litellm](https://pi.dev/packages/pi-provider-litellm) and [pi-subagents](https://pi.dev/packages/pi-subagents)
 - `rtk init --help` (local, RTK)

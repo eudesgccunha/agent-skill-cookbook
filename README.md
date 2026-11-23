@@ -10,14 +10,17 @@ Recipes for choosing the right agent skill for each workflow. Covers RTK, Superp
 | Superpowers | Plan, TDD, debugging, subagents, review | Automatic (session-start hook picks skills) |
 | Pocock skills | Grilling, domain modeling, TDD, review, PR | You invoke them |
 | Caveman | Short replies, fewer output tokens | Mode you toggle |
+| Ponytail (optional) | Makes the agent write less code | Mode you toggle |
 
-Recommended base: RTK + Pocock (design) + Superpowers (execution). Caveman is optional.
+Recommended base: RTK + Pocock (design) + Superpowers (execution). Caveman and Ponytail are optional.
 
 ## Rule of thumb
 
 Design with Pocock. Execute with Superpowers. Compress with RTK and Caveman.
 
 Pocock and Superpowers overlap on TDD, debugging and review. Pick one per stage and say so in `CLAUDE.md` (see [setup](setup.md)).
+
+Per-skill guidance: [skills.md](skills.md).
 
 ## Workflows
 
@@ -32,7 +35,8 @@ Pocock and Superpowers overlap on TDD, debugging and review. Pick one per stage 
 
 | Skill | Use when | Workflow |
 |---|---|---|
-| `grilling` / `grill-me` | A plan or idea is vague | New feature |
+| `grill-with-docs` | Design with a repo: interview plus ADRs and glossary | New feature |
+| `grilling` / `grill-me` | A plan or idea is vague, no repo | New feature |
 | `domain-modeling` | Terms are confusing, or a decision needs an ADR | New feature |
 | `tdd` | You want test-first work | New feature, bug fix |
 | `diagnosing-bugs` | Something is broken, flaky or slow | Bug fix |

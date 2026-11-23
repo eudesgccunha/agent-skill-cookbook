@@ -6,4 +6,4 @@
 4. **Fix at the narrowest layer.** Keep surrounding behavior unchanged.
 5. **Run the test suite.**
 
-Use either `diagnosing-bugs` (Pocock) or the Superpowers debugging skill in one session, not both.
+Use either `diagnosing-bugs` (Pocock) or Superpowers `systematic-debugging` in one session, not both.

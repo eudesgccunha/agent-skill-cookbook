@@ -16,6 +16,15 @@ claude plugin marketplace add JuliusBrussee/caveman
 claude plugin install caveman@caveman
 ```
 
+Ponytail (optional, from its README, untested here), inside Claude Code:
+
+```
+/plugin marketplace add DietrichGebert/ponytail
+/plugin install ponytail@ponytail
+```
+
+Run `/setup-matt-pocock-skills` once per repo.
+
 Do not install the same skill through a plugin and through `npx skills`. It duplicates it.
 
 ## Suggested `CLAUDE.md` block
@@ -33,3 +42,4 @@ Do not install the same skill through a plugin and through `npx skills`. It dupl
 - Superpowers: https://github.com/obra/superpowers
 - Pocock skills: https://github.com/mattpocock/skills
 - Caveman: https://github.com/JuliusBrussee/caveman
+- Ponytail: https://github.com/DietrichGebert/ponytail

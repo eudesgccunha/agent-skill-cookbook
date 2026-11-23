@@ -9,3 +9,5 @@
 | `caveman-stats` | Nothing, it measures | Check real usage in a session |
 
 Check RTK with `rtk gain`.
+
+Ponytail is a different lever: it cuts code the agent writes, not tokens. See [skills.md](../skills.md#ponytail-optional).
